@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  frontend:
+    build: ./frontend
+    restart: always
+    volumes:
+      - ./frontend/reactapp:/usr/src/app
+    command: npm start
+    networks:
+      - services_network
+    ports:
+      - 3000:3000
+
+volumes:
+  staticfiles:
+
+networks:
+  services_network:
